@@ -1,6 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal />
+  <Modal :header="header" :text="text" />
   
 </template>
 
@@ -12,7 +12,9 @@ export default {
   components: { Modal },
   data() {
     return {
-      title: 'Hello, TasteSeeker'
+      title: 'Hello, TasteSeeker',
+      header: 'Taste | Seek', 
+      text: 'Win!'
     }
   },
   methods: {
