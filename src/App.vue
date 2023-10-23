@@ -1,7 +1,10 @@
 <template>
   <h1>{{ title }}</h1>
-  <Modal :header="header" :text="text" />
-  
+  <p>Welcome</p>
+  <div v-if="showModal">
+  <Modal :header="header" :text="text" @close="toggleModal" />
+  </div>
+  <button @click="toggleModal">open modal</button>
 </template>
 
 <script>
@@ -14,14 +17,18 @@ export default {
     return {
       title: 'Hello, TasteSeeker',
       header: 'Taste | Seek', 
-      text: 'Win!'
+      text: 'Win!',
+      showModal: false
     }
   },
   methods: {
-    handleClick() { 
-      console.log(this.$refs.name)
-      this.$refs.name.classList.add('active')
-      this.$refs.name.focus()
+    // handleClick() { 
+    //   console.log(this.$refs.name)
+    //   this.$refs.name.classList.add('active')
+    //   this.$refs.name.focus()
+    // }
+    toggleModal() {
+      this.showModal = !this.showModal
     }
   }
 }
